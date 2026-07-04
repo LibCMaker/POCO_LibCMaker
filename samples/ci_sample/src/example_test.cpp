@@ -121,11 +121,31 @@ void testUnescape()
 }
 
 
+void testNormalize()
+{
+  const std::string INPUT("\303\274\303\266\303\244"); // "u"o"a
+  const std::string NFD("\165\314\210\157\314\210\141\314\210");
+
+  std::string nfd = UTF8::normalize(INPUT, UTF8::NORMALIZATION_FORM_D);
+  EXPECT_TRUE (nfd == NFD);
+
+  nfd = UTF8::normalize(INPUT.begin(), INPUT.end(), UTF8::NORMALIZATION_FORM_D);
+  EXPECT_TRUE (nfd == NFD);
+
+  std::string nfc = UTF8::normalize(nfd, UTF8::NORMALIZATION_FORM_C);
+  EXPECT_TRUE (nfc == INPUT);
+
+  nfc = UTF8::normalize(nfd.begin(), nfd.end(), UTF8::NORMALIZATION_FORM_C);
+  EXPECT_TRUE (nfc == INPUT);
+}
+
+
 TEST(Examle, test) {
   testCompare();
   testTransform();
   testEscape();
   testUnescape();
+  testNormalize();
 
   EXPECT_TRUE(true);
 }

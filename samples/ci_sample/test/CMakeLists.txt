@@ -29,10 +29,6 @@ if(BUILD_TESTING)
     PRIVATE
       ${test_src_DIR}/example_test.cpp
   )
-  set_target_properties(${test_NAME} PROPERTIES
-    CXX_STANDARD 14
-    C_STANDARD 11
-  )
 
   # POCO
   target_link_libraries(${test_NAME} PRIVATE Poco::Foundation)
