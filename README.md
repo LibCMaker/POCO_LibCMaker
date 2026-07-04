@@ -1,4 +1,4 @@
-# LibCMaker_POCO
+# POCO_LibCMaker
 
 The CMake build scripts for the POCO library building with CMake.
 
