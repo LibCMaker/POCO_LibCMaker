@@ -42,7 +42,7 @@ cmr_common_sample_part__add_executable()
 #-----------------------------------------------------------------------
 
 list(APPEND CMAKE_PREFIX_PATH ${LibCMaker_LIB_DIR}/POCO_LibCMaker/cmake)
-find_package(Poco REQUIRED)
+find_package(Poco REQUIRED CONFIG)
 
 
 #-----------------------------------------------------------------------
